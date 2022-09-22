@@ -1,0 +1,3 @@
+version=3
+opts="dversionmangle=s/\+dfsg\d*$//, repacksuffix=+dfsg, filenamemangle=s/.+\/v?(\d\S+)\.tar\.gz/lksctp-tools-$1\.tar\.gz/" \
+https://github.com/sctp/lksctp-tools/releases .*/v?(\d\S+)\.tar\.gz

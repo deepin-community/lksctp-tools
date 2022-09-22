@@ -1,0 +1,59 @@
+Source: lksctp-tools
+Section: net
+Priority: optional
+Maintainer: Michael Biebl <biebl@debian.org>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.5.1
+Rules-Requires-Root: no
+Vcs-Git: https://salsa.debian.org/debian/lksctp-tools.git
+Vcs-Browser: https://salsa.debian.org/debian/lksctp-tools
+Homepage: http://lksctp.sf.net/
+
+Package: libsctp1
+Section: libs
+Architecture: linux-any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Suggests: lksctp-tools
+Description: user-space access to Linux kernel SCTP - shared library
+ SCTP (Stream Control Transmission Protocol) is a message oriented,
+ reliable transport protocol, with congestion control, support for
+ transparent multi-homing, and multiple ordered streams of messages.
+ RFC 2960 defines the core protocol.
+ .
+ This library is part of the LKSCTP project, supplementing the Linux
+ kernel SCTP implementation.
+
+Package: libsctp-dev
+Section: libdevel
+Architecture: linux-any
+Multi-Arch: same
+Depends: libsctp1 (= ${binary:Version}), ${misc:Depends}, libc6-dev | libc-dev
+Description: user-space access to Linux kernel SCTP - development files
+ SCTP (Stream Control Transmission Protocol) is a message oriented,
+ reliable transport protocol, with congestion control, support for
+ transparent multi-homing, and multiple ordered streams of messages.
+ RFC 2960 defines the core protocol.
+ .
+ This package is part of the LKSCTP project, providing all necessary
+ files for developing SCTP aware network applications using the Linux
+ kernel SCTP implementation: man pages, header files, static libraries,
+ symlinks to dynamic libraries, and tutorial source code.
+
+Package: lksctp-tools
+Section: net
+Architecture: linux-any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: user-space access to Linux kernel SCTP - commandline tools
+ SCTP (Stream Control Transmission Protocol) is a message oriented,
+ reliable transport protocol, with congestion control, support for
+ transparent multi-homing, and multiple ordered streams of messages.
+ RFC 2960 defines the core protocol.
+ .
+ This package is part of the LKSCTP project, and contains libraries and
+ commandline tools to test SCTP functionality:
+  * checksctp: determine if kernel supports SCTP
+  * withsctp: run existing TCP binaries over SCTP
+  * sctp_darn: send and receive messages via SCTP
+  * sctp_test: check SCTP functionality from user-space
